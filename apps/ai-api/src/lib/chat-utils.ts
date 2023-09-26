@@ -28,14 +28,8 @@ ${query}
 Answer as markdown (including related code snippets if available):
     `;
 
-  // Remove the last message, which is the user query
-  // and restructure the user query to include the instructions and context.
-  // Add the system prompt as the first message of the array
-  // and add the user query as the last message of the array.
-  messages.pop();
   messages = [
     { role: 'system', content: prompt },
-    ...(messages ?? []),
     { role: 'user', content: finalQuery },
   ];
 

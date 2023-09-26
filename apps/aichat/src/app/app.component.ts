@@ -7,18 +7,13 @@ import { ApiService } from './ai.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  message = '';
+  message$ = this.apiService.postEndpoint('some question');
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.apiService.getEndpoint().subscribe(
-      (data) => {
-        this.message = data.message;
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+    this.message$.subscribe((data) => {
+      console.log('data', data);
+    });
   }
 }

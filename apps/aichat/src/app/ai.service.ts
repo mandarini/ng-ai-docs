@@ -11,7 +11,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getEndpoint(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  postEndpoint(data: string): Observable<any> {
+    return this.http.post<any>(
+      this.apiUrl,
+      { query: data },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
   }
 }
