@@ -1,4 +1,3 @@
-// api.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,8 +10,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  postEndpoint(data: string): Observable<any> {
-    return this.http.post<any>(
+  postEndpoint(data: string): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(
       this.apiUrl,
       { query: data },
       {

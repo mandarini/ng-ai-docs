@@ -42,7 +42,6 @@ app.post('/api', async (req, res) => {
 
   const query = req.body['query'];
 
-  console.log('query', query); // Log the request body to the console
   const embeddingResponse: OpenAI.Embeddings.CreateEmbeddingResponse =
     await openai.embeddings.create({
       model: 'text-embedding-ada-002',
@@ -55,7 +54,7 @@ app.post('/api', async (req, res) => {
   // Handle the incoming data as needed and send a response
 
   const { error: matchError, data: pageSections } = await supabaseClient.rpc(
-    'match_page_sections_2',
+    'match_page_sections',
     {
       embedding,
       match_threshold: DEFAULT_MATCH_THRESHOLD,
@@ -65,6 +64,7 @@ app.post('/api', async (req, res) => {
   );
 
   if (matchError) {
+    console.log('matchError', matchError);
     throw new CustomError(
       'application_error',
       'Failed to match page sections',
@@ -107,7 +107,9 @@ app.post('/api', async (req, res) => {
       stream: false,
     });
 
-  res.send({ message: 'Data received!', receivedData: response });
+  const responseText = response?.choices?.[0]?.message?.content;
+
+  res.send({ message: responseText });
 });
 
 const port = process.env.PORT || 3333;

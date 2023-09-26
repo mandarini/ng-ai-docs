@@ -7,7 +7,7 @@ import { ApiService } from './ai.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  message$ = this.apiService.postEndpoint('some question');
+  message$ = this.apiService.postEndpoint('what is angular?');
 
   constructor(private apiService: ApiService) {}
 
