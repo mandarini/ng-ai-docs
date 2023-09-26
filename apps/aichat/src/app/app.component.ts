@@ -9,12 +9,16 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   aiResponse$: Observable<{ message: string }> | undefined;
-
+  loading = false;
   constructor(private apiService: ApiService) {}
 
   onEnter(msg: string): void {
     if (msg) {
-      this.aiResponse$ = this.apiService.postEndpoint(msg);
+      this.loading = true;
+      this.aiResponse$ = this.apiService.postEndpoint(msg).pipe((msg) => {
+        this.loading = false;
+        return msg;
+      });
     }
   }
 }

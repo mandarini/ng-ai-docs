@@ -1,2 +1,15 @@
-<input type="text" #box required (keyup.enter)="onEnter(box.value)" />
-<p>{{ (aiResponse$ | async)?.message }}</p>
+<input
+  type="text"
+  #box
+  required
+  (keyup.enter)="onEnter(box.value)"
+  [disabled]="loading"
+/>
+<div *ngIf="loading; else content">
+  <p class="loading">Thinking...</p>
+</div>
+<ng-template #content>
+  <div class="response-box">
+    <p>{{ (aiResponse$ | async)?.message }}</p>
+  </div>
+</ng-template>
