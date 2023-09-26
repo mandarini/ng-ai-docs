@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'tools-documentation-create-embeddings',
+  displayName: 'documentation-create-embeddings',
   preset: './jest.preset.js',
   testEnvironment: 'node',
   transform: {
@@ -14,5 +14,5 @@ export default {
     '<rootDir>/node_modules/.pnpm/(?!(github-slugger)@)',
   ],
   moduleFileExtensions: ['mts', 'ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/tools/documentation/create-embeddings',
+  coverageDirectory: '../../coverage/tools/documentation/create-embeddings',
 };
