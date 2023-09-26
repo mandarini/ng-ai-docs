@@ -1,2 +1,2 @@
-<p>{{ (message$ | async)?.message }}</p>
-<router-outlet></router-outlet>
+<input type="text" #box required (keyup.enter)="onEnter(box.value)" />
+<p>{{ (aiResponse$ | async)?.message }}</p>

@@ -1,19 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from './ai.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ng-ai-chat-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  message$ = this.apiService.postEndpoint('what is angular?');
+export class AppComponent {
+  aiResponse$: Observable<{ message: string }> | undefined;
 
   constructor(private apiService: ApiService) {}
 
-  ngOnInit(): void {
-    this.message$.subscribe((data) => {
-      console.log('data', data);
-    });
+  onEnter(msg: string): void {
+    if (msg) {
+      this.aiResponse$ = this.apiService.postEndpoint(msg);
+    }
   }
 }
