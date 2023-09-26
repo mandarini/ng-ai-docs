@@ -1,0 +1,64 @@
+{
+  "name": "documentation-create-embeddings",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "documentation/create-embeddings/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/documentation/create-embeddings",
+        "format": ["esm"],
+        "bundle": false,
+        "main": "documentation/create-embeddings/src/main.mts",
+        "tsConfig": "documentation/create-embeddings/tsconfig.app.json",
+        "assets": ["documentation/create-embeddings/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "run-node": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "documentation-create-embeddings:build",
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "documentation-create-embeddings:build:development"
+        },
+        "production": {
+          "buildTarget": "documentation-create-embeddings:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["documentation/create-embeddings/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}
