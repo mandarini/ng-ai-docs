@@ -13,6 +13,7 @@ export class AppComponent {
   constructor(private apiService: ApiService) {}
 
   onEnter(msg: string): void {
+    console.log(msg);
     if (msg) {
       this.loading = true;
       this.aiResponse$ = this.apiService.postEndpoint(msg).pipe((msg) => {

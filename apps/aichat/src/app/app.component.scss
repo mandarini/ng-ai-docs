@@ -1,13 +1,36 @@
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 input {
+  flex-grow: 1;
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-bottom: 10px;
   &:focus {
     border-color: #009688;
     outline: none;
+  }
+}
+
+button {
+  background-color: #009688;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+  &:hover {
+    background-color: #007d65;
+  }
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
 }
 
