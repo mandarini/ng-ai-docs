@@ -3,10 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const supabaseUrl = process.env['NEXT_PUBLIC_SUPABASE_URL'];
-const supabaseServiceKey = process.env['SUPABASE_SERVICE_ROLE_KEY'];
-const openAiKey = process.env['OPENAI_KEY'];
-
 @Injectable({
   providedIn: 'root',
 })
