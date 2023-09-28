@@ -445,9 +445,9 @@ async function generateEmbeddings() {
 
   const shouldRefresh = argv.refresh;
 
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+  if (!process.env.PUBLIC_SUPABASE_URL) {
     throw new Error(
-      'Environment variable NEXT_PUBLIC_SUPABASE_URL is required: skipping embeddings generation'
+      'Environment variable PUBLIC_SUPABASE_URL is required: skipping embeddings generation'
     );
   }
 
@@ -464,7 +464,7 @@ async function generateEmbeddings() {
   }
 
   const supabaseClient = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.PUBLIC_SUPABASE_URL,
     process.env.SUPABASE_SERVICE_ROLE_KEY,
     {
       auth: {

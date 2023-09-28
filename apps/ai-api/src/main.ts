@@ -18,21 +18,18 @@ import {
 import GPT3Tokenizer from 'gpt3-tokenizer';
 import { initializeChat } from './lib/chat-utils';
 
-const supabaseUrl = process.env['NEXT_PUBLIC_SUPABASE_URL'];
+const supabaseUrl = process.env['PUBLIC_SUPABASE_URL'];
 const supabaseServiceKey = process.env['SUPABASE_SERVICE_ROLE_KEY'];
 const openAiKey = process.env['OPENAI_KEY'];
 
 const app = express();
 
 app.use(cors());
-app.use(express.json()); // Add this line to use express.json middleware
+app.use(express.json());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/api', (req, res) => {
-  // ... existing GET endpoint code ...
-});
+// app.get('/api', (req, res) => {});
 
-// Create a new POST endpoint
 app.post('/api', async (req, res) => {
   const openai = getOpenAI(openAiKey);
   const supabaseClient: SupabaseClient<any, 'public', any> = getSupabaseClient(
@@ -51,7 +48,6 @@ app.post('/api', async (req, res) => {
   const {
     data: [{ embedding }],
   } = embeddingResponse;
-  // Handle the incoming data as needed and send a response
 
   const { error: matchError, data: pageSections } = await supabaseClient.rpc(
     'match_page_sections',

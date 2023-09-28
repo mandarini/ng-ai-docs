@@ -27,7 +27,7 @@ export function getSupabaseClient(
   if (!supabaseUrl) {
     throw new CustomError(
       'application_error',
-      'Missing environment variable NX_NEXT_PUBLIC_SUPABASE_URL',
+      'Missing environment variable NX_PUBLIC_SUPABASE_URL',
       { missing_key: true }
     );
   }
