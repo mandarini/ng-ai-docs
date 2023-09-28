@@ -1,3 +1,5 @@
+// TAKEN FROM: https://github.com/nrwl/nx/tree/master/nx-dev/util-ai/src/lib
+
 import { ChatItem } from './utils';
 
 /**

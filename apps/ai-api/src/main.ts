@@ -1,3 +1,5 @@
+// TAKEN FROM: https://github.com/nrwl/nx/blob/master/nx-dev/nx-dev/pages/api/query-ai-handler.ts
+
 import express from 'express';
 import * as path from 'path';
 import cors from 'cors';

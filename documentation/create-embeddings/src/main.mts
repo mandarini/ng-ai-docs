@@ -1,3 +1,5 @@
+// TAKEN FROM: https://github.com/nrwl/nx/blob/master/tools/documentation/create-embeddings/src/main.mts
+
 import { createClient } from '@supabase/supabase-js';
 import { readFile } from 'fs/promises';
 import 'openai';

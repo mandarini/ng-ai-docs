@@ -1,3 +1,5 @@
+// TAKEN FROM: https://github.com/nrwl/nx/tree/master/nx-dev/util-ai/src/lib
+
 export const DEFAULT_MATCH_THRESHOLD = 0.78;
 export const DEFAULT_MATCH_COUNT = 15;
 export const MIN_CONTENT_LENGTH = 50;
