@@ -15,7 +15,6 @@
         "bundle": false,
         "main": "documentation/create-embeddings/src/main.mts",
         "tsConfig": "documentation/create-embeddings/tsconfig.app.json",
-        "assets": ["documentation/create-embeddings/src/assets"],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
